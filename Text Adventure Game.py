@@ -70,6 +70,7 @@ while True:
         continue
     if answer == "yes":
         timeLeft -= 1
+        responses += ["tinker"]
         print("You tried to wiggle the rings off. Suddenly, one of the five lights on each of the metal rings went out.")
         input()
         print("Startled, you decided to leave the metal rings alone.")
@@ -99,18 +100,41 @@ input()
 print("And when a sick man with lots of money to spare is bored, things can happen.")
 input()
 while True:
-    print("Interrupt him?")
+    print("Say something?")
     answer = input()
-    if answer == "help:
+    if answer == "help":
         commands()
         continue
     if answer == "yes":
         timeLeft -= 1
-        interrupts = ["'Please let me go. I won't tell anyone.'", "HELP!", ""
+        responses += ["interrupt"]
+        interrupts = ["'Please let me go. I won't tell anyone.'", "HELP!"]
+        response = random.choice(interrupts)
+        if timeLeft == 5:
+            print("Just as you spoke out, one of the red lights on each of the rings went out.")
+            input()
+        else:
+            print("Just as you spoke out, another one of the red lights on each of the rings went out.")
+            input()
+        print("'I don't like to be interrupted.' The man said in displeasure.")
+        input()
+        print("'That is a small warning. Next time I won't be so nice.'")
+        input()
+        print("'As I was saying, I wanted to play a game.'")
+        input()
+        print("'You see those metal bands? They have tiny time bombs planted inside. Each red dot represent an hour.'")
+        input()
+        if timeLeft == 3:
+            print("'Due to your mistakes from earlier, you now only have 3 hours left. Before the bombs go... boom.'")
+            input()
+        elif timeLeft == 4:
+            if "tinker" in responses:
+                print("'Since you tried to mess with the rings, I had to take an hour off, ")
+                
+        
         
         break
     else:
-        print("")
         break
 
 print("")
