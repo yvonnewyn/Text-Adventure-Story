@@ -3,9 +3,11 @@ import random
 
 inventory = []
 responses = []
-rooms = []
+roomsEntered = ["room8"]
+global room
 global item
 timeLeft = 5
+global timeSpend
 
 def title():
     print(" ██ ▄█▀▓█████▓██   ██▓  ██████ ")
@@ -68,7 +70,24 @@ def checkInput():
         inventory()
     elif answer == "use":
         use()
-     
+        
+def checkTime():
+    if timeSpend == 10:
+        timeLeft -= 1
+    print("You now have", timeLeft "hours left.")
+
+def room1():
+    checkTime()
+    if "keyForChest1" in inventory and "room1" in roomsEntered:
+        print("After entering the room, you immediately went to the large, red chest.")
+        
+        
+        
+        
+    print("You walk into an empty room with a large chest in the center.")
+    input()
+    print("")
+    
 
 title()
 commands()
@@ -84,8 +103,7 @@ print("Each of the rings have five small, red lights on them, with a key hole in
 input()
 print("Try to take them off?")
 answer = input()
-if answer == "help":
-    commands()
+checkInput()
 if answer == "yes":
     timeLeft -= 1
     responses += ["tinker"]
