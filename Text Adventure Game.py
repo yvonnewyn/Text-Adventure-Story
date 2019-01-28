@@ -1,5 +1,6 @@
 import time
 import random
+import sys
 
 inventory = []
 responses = []
@@ -7,7 +8,8 @@ roomsEntered = ["room8"]
 global room
 global item
 timeLeft = 5
-global timeSpend
+global timeSpent
+global keys
 
 def title():
     print(" ██ ▄█▀▓█████▓██   ██▓  ██████ ")
@@ -54,40 +56,161 @@ def use():
     
 def checkInput():
     global answer
-    if answer == "left":
-        left()
-    elif answer == "right":
-        right()
-    elif answer == "front":
-        front()
-    elif answer == "back":
-        back()
-    elif answer == "help":
+    if answer == "help":
         commands()
-    elif answer == "grab":
-        grab()
     elif answer == "inventory":
         inventory()
-    elif answer == "use":
-        use()
+
         
 def checkTime():
-    if timeSpend == 10:
+    if timeSpent == 10:
         timeLeft -= 1
-    print("You now have", timeLeft "hours left.")
+        print("You now have", timeLeft "hours left.")
+    if timeLeft == 0 and keys != 5:
+        if keys !=5:
+            print("Suddenly, a voice sounded over your head.")
+            input()
+            print("'Tic toc. You're out of time.'")
+            input()
+            print("'How very unfortunate.' The voice laughed.")
+            input()
+            print("'Goodbye.'")
+            input()
+            print("Boom. Everything went black.")
+            input()
+            print("You died.")
+            sys.exit()
+        elif keys == 5 and room != "room2":
+            print("Suddenly, a voice sounded over your head.")
+            input()
+            print("'Tic toc. You're out of time.'")
+            input()
+            print("'How very unfortunate.' The voice laughed.")
+            input()
+            print("'You were so close too. You just needed to make it to the door.'")
+            input()
+            print("'However, rules are rules.'")
+            input()
+            print("'Goodbye.'")
+            input()
+            print("Boom. Everything went black.")
+            input()
+            print("You died.")
+            sys.exit()
+        
 
 def room1():
+    timeSpent += 1
+    global room
+    global keys
     checkTime()
-    if "keyForChest1" in inventory and "room1" in roomsEntered:
-        print("After entering the room, you immediately went to the large, red chest.")
-        
-        
-        
-        
-    print("You walk into an empty room with a large chest in the center.")
-    input()
-    print("")
+    if "key1" in inventory:
+        print("You've already gotten everything from this room.")
+        input()
+        while True:
+            print("Where would you like to go?")
+            answer = input()
+            checkInput()
+            if answer == "back":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+        back()
+        return room = "room4"   
     
+    elif "keyForChest1" in inventory and "room1" in roomsEntered:
+        print("After entering the room, you immediately went to the chest.")
+        input()
+        print("You took out the red key, and inserted it into the lock.")
+        inventory -= ["keyForChest1"]
+        input()
+        print("Upon opening the chest, you found two keys for the rings.")
+        inventory += ["key1", "key2"]
+        keys += 2
+        input()
+        print("You have now obtained 2 out of the 5 keys.")
+        input()
+        while True:
+            print("Where would you like to go?")
+            answer = input()
+            checkInput()
+            if answer == "back":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+        back()
+        return room = "room4"
+    
+    elif "room1" in roomsEntered:
+        print("You need to find the key for the red chest.")
+        input()
+        while True:
+            print("Where would you like to go?")
+            answer = input()
+            checkInput()
+            if answer == "back":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+        back()
+        return room = "room4"
+    
+    else:
+        print("You walk into an empty room with a large, red chest in the center.")
+        input()
+        print("You walk to the chest.")
+        input()
+        print("Kneeling down, you notice that there is a lock locking the chest.")
+        input()
+        print("You would need a key.")
+        input()
+        print("Search room for key?")
+        answer = input()
+        checkInput()
+        if answer == "yes":
+            print("You walk around the room, peering into the corners.")
+            input()
+            print("There is no key in sight.")
+            input()
+            print("It seems you'll have to look for the key elsewhere.")
+            input()
+        elif answer == "no":
+            print("You decide to not search for the key in this empty room.")
+            input()
+        while True:
+            print("Where would you like to go?")
+            answer = input()
+            checkInput()
+            if answer == "back":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+        back()
+        return room = "room4"
+    
+    if "room1" not in roomsEntered:
+        roomsEntered += ["room1"]
+
+def room2():
+    timeSpent += 1
+    global room
+    global keys
+    checkTime()
+    if "room2" in roomsEntered:
+        if keys == 5:
+    
+    
+    
+    
+    
+    if "room2" not in roomsEntered:
+        roomsEntered.append("room2")
+        
+        
 
 title()
 commands()
