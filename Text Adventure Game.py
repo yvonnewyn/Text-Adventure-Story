@@ -9,7 +9,7 @@ global room
 global item
 timeLeft = 5
 global timeSpent
-global keys
+keys = 0
 
 def title():
     print(" ██ ▄█▀▓█████▓██   ██▓  ██████ ")
@@ -129,10 +129,12 @@ def room1():
         inventory += ["key1", "key2"]
         keys += 2
         input()
-        print("You have now obtained 2 out of the 5 keys.")
+        print("You have obtained 2 keys.")
         input()
+		print("You now have", keys, "keys.")
+		input()
         while True:
-            print("Where would you like to go?")
+            print("Where would you like to go next?")
             answer = input()
             checkInput()
             if answer == "back":
@@ -159,11 +161,11 @@ def room1():
         return room = "room4"
     
     else:
-        print("You walk into an empty room with a large, red chest in the center.")
+        print("You walked into an empty room with a large, red chest in the center.")
         input()
-        print("You walk to the chest.")
+        print("You walked to the chest.")
         input()
-        print("Kneeling down, you notice that there is a lock locking the chest.")
+        print("Kneeling down, you noticed that there is a lock locking the chest.")
         input()
         print("You would need a key.")
         input()
@@ -175,7 +177,7 @@ def room1():
             input()
             print("There is no key in sight.")
             input()
-            print("It seems you'll have to look for the key elsewhere.")
+            print("It seems you'll have to look for the key for the chest elsewhere.")
             input()
         elif answer == "no":
             print("You decide to not search for the key in this empty room.")
@@ -195,26 +197,172 @@ def room1():
     if "room1" not in roomsEntered:
         roomsEntered += ["room1"]
 
+        
 def room2():
     timeSpent += 1
     global room
     global keys
     checkTime()
-    if "room2" in roomsEntered:
+    if "room2" not in roomsEntered:
         if keys == 5:
-    
-    
-    
-    
-    
+            print("A large metal door greets you as soon as you entered the room.")
+            input()
+            print("You looked down, and in your hands you held 5 keys.")
+            input()
+            print("One by one, you unlocked the metal rings on your wrists and ankles, until only one key is left.")
+            input()
+            print("Slowly, you inserted the final key into the lock on the door, and turn the key.")
+            input()
+            print("You opened the door.")
+            sys.exit()
+        elif keys != 5:
+            print("A large metal door greets you as soon as you entered the room.")
+            input()
+            print("'This must be the exit.' You thought to yourself.")
+            input()
+            if keys == 0:
+                print("However, you do not have any keys.")
+                input()
+                print("You would need to go else where to search for the keys.")
+                input()
+            else:
+                print("However, you do not have enough keys.")
+                input()
+                print("You would need to go elsewhere to search for more keys.")
+                input()
+            while True:
+                print("Where would you like to go?")
+                answer = input()
+                checkInput()
+                if answer == "back" or answer == "right":
+                    exit
+                else:
+                    print("You cannot go that way.")
+                    continue
+                    
+            if answer == "back":
+                back()
+                return room = "room5"
+            elif answer == "right":
+                right()
+                return room = "room3"
+				
+	elif "room2" in roomsEntered:
+		if keys == 5:
+			print("You walked into the room with the exit.")
+			input()
+			print("You looked down, and in your hands you held 5 keys.")
+            input()
+            print("One by one, you unlocked the metal rings on your wrists and ankles, until only one key is left.")
+            input()
+            print("Slowly, you inserted the final key into the lock on the door, and turn the key.")
+            input()
+            print("You opened the door.")
+            sys.exit()
+		elif keys != 5:
+			print("You walked into the room with the exit.")
+			input()
+			print("However, you do not have enough keys.")
+			input()
+			while True:
+                print("Where would you like to go to search for more keys?")
+                answer = input()
+                checkInput()
+                if answer == "back" or answer == "right":
+                    exit
+                else:
+                    print("You cannot go that way.")
+                    continue
+                    
+            if answer == "back":
+                back()
+                return room = "room5"
+            elif answer == "right":
+                right()
+                return room = "room3"
+
     if "room2" not in roomsEntered:
         roomsEntered.append("room2")
         
-        
+		
+		
+def room3():
+	timeSpent += 1
+    global room
+    global keys
+    checkTime()
+	if "key3" in inventory:
+		print("You've already gotten everything from this room.")
+        input()
+        while True:
+            print("Where would you like to go?")
+            answer = input()
+            checkInput()
+            if answer == "left":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+        left()
+        return room = "room2"
+	elif "room3" in roomsEntered:
+		print("You walked into the room with the lone drawer", random.choice("again", "once more", "once again") + ".")
+		input()
+		
+		
+		
+		
+		
+	
+	elif "room3" not in roomsEntered:
+		print("As you walked into the room, you noticed that there is a lone drawer at the left side of the wall.")
+		input()
+		print("Search the drawer?")
+		input()
+		print("You started searching the drawer, opening each compartment, looking carefully for any sign of the key.")
+		input()
+		print("However, after combing through the drawer twice, you still couldn't any keys.")
+		input()
+		print("Search some more?")
+		answer = input()
+		checkInput()
+		if answer == "yes":
+			print("You decided to look through the drawer once more.")
+			input()
+			print("Unfortunately, there is no key in sight.")
+			input()
+			print("Just as you're about to give up, you noticed something shiny in a dark corner of the room.")
+			input()
+			print("Curious, you went to check it out.")
+			input()
+			print("Walking closer, you can see that the shiny object is a key.")
+			input()
+			inventory += ["key3"]
+			keys += 1
+			print("You have obtained a key.")
+			input()
+			print("You now have", keys, "keys.")
+			input()
+			while True:
+            	print("Where would you like to go?")
+            	answer = input()
+            	checkInput()
+            	if answer == "left":
+                	exit
+            	else:
+                	print("You cannot go that way.")
+                	continue
+        	left()
+        	return room = "room2"
+		
+		
+
+
 
 title()
 commands()
 
+room = "room8"
 print("\n")    
 print("You woke up in a dark room, with a pounding headache.")
 input()
