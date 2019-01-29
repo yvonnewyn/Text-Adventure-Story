@@ -312,22 +312,7 @@ def room3():
 	elif "room3" in roomsEntered:
 		print("You walked into the room with the lone drawer", random.choice("again", "once more", "once again") + ".")
 		input()
-		
-		
-		
-		
-		
-	
-	elif "room3" not in roomsEntered:
-		print("As you walked into the room, you noticed that there is a lone drawer at the left side of the wall.")
-		input()
 		print("Search the drawer?")
-		input()
-		print("You started searching the drawer, opening each compartment, looking carefully for any sign of the key.")
-		input()
-		print("However, after combing through the drawer twice, you still couldn't any keys.")
-		input()
-		print("Search some more?")
 		answer = input()
 		checkInput()
 		if answer == "yes":
@@ -347,15 +332,71 @@ def room3():
 			input()
 			print("You now have", keys, "keys.")
 			input()
-			while True:
-            	print("Where would you like to go?")
-            	answer = input()
-            	checkInput()
-            	if answer == "left":
-                	exit
-            	else:
-                	print("You cannot go that way.")
-                	continue
+		elif answer == "no":
+			print("You decided to search elsewhere.")
+		while True:
+            		print("Where would you like to go?")
+            		answer = input()
+            		checkInput()
+            		if answer == "left":
+                		exit
+            		else:
+                		print("You cannot go that way.")
+                		continue
+        	left()
+        	return room = "room2"
+		
+		
+		
+		
+		
+		
+	
+	elif "room3" not in roomsEntered:
+		print("As you walked into the room, you noticed that there is a lone drawer at the left side of the wall.")
+		input()
+		print("Search the drawer?")
+		input()
+		answer = input()
+		checkInput()
+		if answer == "yes":
+			print("You started searching the drawer, opening each compartment, looking carefully for any sign of the key.")
+			input()
+			print("However, after combing through the drawer twice, you still couldn't any keys.")
+			input()
+			print("Search some more?")
+			answer = input()
+			checkInput()
+			if answer == "yes":
+				print("You decided to look through the drawer once more.")
+				input()
+				print("Unfortunately, there is no key in sight.")
+				input()
+				print("Just as you're about to give up, you noticed something shiny in a dark corner of the room.")
+				input()
+				print("Curious, you went to check it out.")
+				input()
+				print("Walking closer, you can see that the shiny object is a key.")
+				input()
+				inventory += ["key3"]
+				keys += 1
+				print("You have obtained a key.")
+				input()
+				print("You now have", keys, "keys.")
+				input()
+			elif answer == "no":
+				print("You decided to search elsewhere.")
+		elif answer == "no":
+			print("You decided to search elsewhere.")
+		while True:
+            		print("Where would you like to go?")
+            		answer = input()
+            		checkInput()
+            		if answer == "left":
+                		exit
+            		else:
+                		print("You cannot go that way.")
+                		continue
         	left()
         	return room = "room2"
 		
