@@ -23,20 +23,20 @@ def title():
     print("              ░ ░              ")
 
 def commands():
-    print("Commands: yes, no, front, back, left, right, grab, inventory, use. All are lower case.")
+    print("Commands: yes, no, north, south, east, west, grab, inventory, use. All are lower case.")
     print("To see commands list again, type help.")
 
-def front():
-    print("You chose to keep going straight.")
+def north():
+    print("You chose to go north.")
 
-def back():
-    print("You chose to go back.")
+def south():
+    print("You chose to go south.")
 
-def left():
-    print("You chose to go left.")
+def west():
+    print("You chose to go west.")
 
-def right():
-    print("You chose to go right.")
+def east():
+    print("You chose to go east.")
 
 def grab():
     global item
@@ -115,12 +115,12 @@ def room1():
             print("Where would you like to go?")
             answer = input()
             checkInput()
-            if answer == "back":
+            if answer == "south":
                 exit
             else:
                 print("You cannot go that way.")
                 continue
-        back()
+        south()
         return room = "room4"   
     
     elif "keyForChest1" in inventory and "room1" in roomsEntered:
@@ -141,12 +141,12 @@ def room1():
             print("Where would you like to go next?")
             answer = input()
             checkInput()
-            if answer == "back":
+            if answer == "south":
                 exit
             else:
                 print("You cannot go that way.")
                 continue
-        back()
+        south()
         return room = "room4"
     
     elif "room1" in roomsEntered:
@@ -156,12 +156,12 @@ def room1():
             print("Where would you like to go?")
             answer = input()
             checkInput()
-            if answer == "back":
+            if answer == "south":
                 exit
             else:
                 print("You cannot go that way.")
                 continue
-        back()
+        south()
         return room = "room4"
     
     else:
@@ -190,12 +190,12 @@ def room1():
             print("Where would you like to go?")
             answer = input()
             checkInput()
-            if answer == "back":
+            if answer == "south":
                 exit
             else:
                 print("You cannot go that way.")
                 continue
-        back()
+        south()
         return room = "room4"
     
     if "room1" not in roomsEntered:
@@ -238,17 +238,17 @@ def room2():
                 print("Where would you like to go?")
                 answer = input()
                 checkInput()
-                if answer == "back" or answer == "right":
+                if answer == "south" or answer == "east":
                     exit
                 else:
                     print("You cannot go that way.")
                     continue
                     
-            if answer == "back":
-                back()
+            if answer == "south":
+                south()
                 return room = "room5"
-            elif answer == "right":
-                right()
+            elif answer == "east":
+                east()
                 return room = "room3"
 				
 	elif "room2" in roomsEntered:
@@ -256,34 +256,34 @@ def room2():
 			print("You walked into the room with the exit.")
 			input()
 			print("You looked down, and in your hands you held 5 keys.")
-            input()
-            print("One by one, you unlocked the metal rings on your wrists and ankles, until only one key is left.")
-            input()
-            print("Slowly, you inserted the final key into the lock on the door, and turn the key.")
-            input()
-            print("You opened the door.")
-            sys.exit()
+            		input()
+            		print("One by one, you unlocked the metal rings on your wrists and ankles, until only one key is left.")
+            		input()
+            		print("Slowly, you inserted the final key into the lock on the door, and turn the key.")
+            		input()
+            		print("You opened the door.")
+            		sys.exit()
 		elif keys != 5:
 			print("You walked into the room with the exit.")
 			input()
 			print("However, you do not have enough keys.")
 			input()
-			while True:
-                print("Where would you like to go to search for more keys?")
-                answer = input()
-                checkInput()
-                if answer == "back" or answer == "right":
-                    exit
-                else:
-                    print("You cannot go that way.")
-                    continue
+		while True:
+                	print("Where would you like to go to search for more keys?")
+                	answer = input()
+                	checkInput()
+                	if answer == "south" or answer == "east":
+                		exit
+                	else:
+                    		print("You cannot go that way.")
+                    		continue
                     
-            if answer == "back":
-                back()
-                return room = "room5"
-            elif answer == "right":
-                right()
-                return room = "room3"
+            	if answer == "south":
+                	south()
+                	return room = "room5"
+            	elif answer == "east":
+                	east()
+                	return room = "room3"
 
     if "room2" not in roomsEntered:
         roomsEntered.append("room2")
@@ -302,12 +302,12 @@ def room3():
             print("Where would you like to go?")
             answer = input()
             checkInput()
-            if answer == "left":
+            if answer == "west":
                 exit
             else:
                 print("You cannot go that way.")
                 continue
-        left()
+        west()
         return room = "room2"
 	elif "room3" in roomsEntered:
 		print("You walked into the room with the lone drawer", random.choice("again", "once more", "once again") + ".")
@@ -338,12 +338,12 @@ def room3():
             		print("Where would you like to go?")
             		answer = input()
             		checkInput()
-            		if answer == "left":
+            		if answer == "west":
                 		exit
             		else:
                 		print("You cannot go that way.")
                 		continue
-        	left()
+        	west()
         	return room = "room2"
 		
 		
@@ -392,15 +392,21 @@ def room3():
             		print("Where would you like to go?")
             		answer = input()
             		checkInput()
-            		if answer == "left":
+            		if answer == "west":
                 		exit
             		else:
                 		print("You cannot go that way.")
                 		continue
-        	left()
+        	west()
         	return room = "room2"
 		
-		
+def room4():
+	timeSpent += 1
+	global room
+	global keys
+	checkTime()
+	
+	
 
 
 
