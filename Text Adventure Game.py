@@ -63,7 +63,7 @@ def checkInput():
 
         
 def checkTime():
-    if timeSpent == 10:
+    if timeSpent >= 6:
         timeLeft -= 1
         print("You now have", timeLeft "hours left.")
     if timeLeft == 0 and keys != 5:
@@ -177,6 +177,7 @@ def room1():
         answer = input()
         checkInput()
         if answer == "yes":
+	    timeSpent += 1
             print("You walk around the room, peering into the corners.")
             input()
             print("There is no key in sight.")
@@ -316,6 +317,7 @@ def room3():
 		answer = input()
 		checkInput()
 		if answer == "yes":
+			timeSpent += 1
 			print("You decided to look through the drawer once more.")
 			input()
 			print("Unfortunately, there is no key in sight.")
@@ -360,6 +362,7 @@ def room3():
 		answer = input()
 		checkInput()
 		if answer == "yes":
+			timeSpent += 1
 			print("You started searching the drawer, opening each compartment, looking carefully for any sign of the key.")
 			input()
 			print("However, after combing through the drawer twice, you still couldn't any keys.")
@@ -368,6 +371,7 @@ def room3():
 			answer = input()
 			checkInput()
 			if answer == "yes":
+				timeSpent += 1
 				print("You decided to look through the drawer once more.")
 				input()
 				print("Unfortunately, there is no key in sight.")
@@ -386,8 +390,10 @@ def room3():
 				input()
 			elif answer == "no":
 				print("You decided to search elsewhere.")
+				input()
 		elif answer == "no":
 			print("You decided to search elsewhere.")
+			input()
 		while True:
             		print("Where would you like to go?")
             		answer = input()
@@ -405,6 +411,40 @@ def room4():
 	global room
 	global keys
 	checkTime()
+	if "room4" in roomsEntered:
+		print("You walked into the room with the envelopes.")
+		input()
+		print("Would you like to search them again?")
+		answer = input()
+		checkInput()
+		if answer == "yes":
+			timeSpent += 3
+			print("You spend a long time painstakingly looking through each and every one of the envelopes.")
+			input()
+			print("Unfortunately, luck doesn't seem to be on your side this time, as no key is found.")
+			input()
+			print("You decided to go elsewhere.")
+		elif answer == "no":
+			print("You decided not to waste time searching.")
+			input()
+		while True:
+            		print("Where would you like to go?")
+            		answer = input()
+            		checkInput()
+            		if answer == "north" or answer == "south" or answer == "east":
+                		exit
+            		else:
+                		print("You cannot go that way.")
+                		continue
+        	if answer == "north":
+			north()
+		elif answer == "south":"
+	
+	
+	
+	if "room4" not in roomsEntered:
+		roomsEntered += ["room4']
+	
 	
 	
 
