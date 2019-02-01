@@ -64,7 +64,7 @@ def checkInput():
         
 def checkTime():
     if timeSpent >= 6:
-        timeLeft -= 1
+    	timeLeft -= 1
         print("You now have", timeLeft "hours left.")
     if timeLeft == 0 and keys != 5:
         if keys !=5:
@@ -76,8 +76,8 @@ def checkTime():
             input()
             print("'Goodbye.'")
             input()
-	    print("As soon as the voice finished talking, the last red light went out.")
-	    input()
+	    	print("As soon as the voice finished talking, the last red light went out.")
+	    	input()
             print("Boom. Everything went black.")
             input()
             print("You died.")
@@ -95,8 +95,8 @@ def checkTime():
             input()
             print("'Goodbye.'")
             input()
-	    print("As soon as the voice finished talking, the last red light went out.")
-	    input()
+	    	print("As soon as the voice finished talking, the last red light went out.")
+	    	input()
             print("Boom. Everything went black.")
             input()
             print("You died.")
@@ -428,22 +428,34 @@ def room4():
 			print("You decided not to waste time searching.")
 			input()
 		while True:
-            		print("Where would you like to go?")
-            		answer = input()
-            		checkInput()
-            		if answer == "north" or answer == "south" or answer == "east":
-                		exit
-            		else:
-                		print("You cannot go that way.")
-                		continue
-        	if answer == "north":
+            print("Where would you like to go?")
+            answer = input()
+         	checkInput()
+            if answer == "north" or answer == "south" or answer == "east":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+       if answer == "north":
 			north()
+			return room = "room1"
 		elif answer == "south":"
+			south()
+			return room = "room7"
+		elif answer == "east":
+			east()
+			return room = "room5"
+			
+			
 	
 	
 	
-	if "room4" not in roomsEntered:
+	elif "room4" not in roomsEntered:
 		roomsEntered += ["room4']
+		print("")
+						 
+						 
+				
 	
 	
 	
@@ -546,6 +558,21 @@ print("'")
 print("")
 input()
 print("")
+				 
+				 
+				 
+while True:
+	if room == "room1":
+		room1()
+	elif room == "room2":
+		room2()
+	elif room == "room3":
+		room2()
+	elif room == "room4":
+		room2()
+		
+				 
+			
 
 
 
