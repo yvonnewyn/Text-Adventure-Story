@@ -414,14 +414,16 @@ def room4():
 	if "room4" in roomsEntered:
 		print("You walked into the room with the envelopes.")
 		input()
-		print("Would you like to search them again?")
+		print("Search?")
 		answer = input()
 		checkInput()
 		if answer == "yes":
-			timeSpent += 3
-			print("You spend a long time painstakingly looking through each and every one of the envelopes.")
+			timeSpent += 6
+			print("Once again, you searched through them.")
 			input()
-			print("Unfortunately, luck doesn't seem to be on your side this time, as no key is found.")
+			print("Like before, no key is found.")
+			input()
+			print("Just like that, another hour is gone you idiot.")
 			input()
 			print("You decided to go elsewhere.")
 		elif answer == "no":
@@ -452,7 +454,53 @@ def room4():
 	
 	elif "room4" not in roomsEntered:
 		roomsEntered += ["room4']
-		print("")
+		print("As you as you walked into the room, white blinded your eyes.")
+		input()
+		print("The entire room is filled with envelopes.")
+		input()
+		print("It looked like there are hundreds, if not thousands, scattered everywhere.")
+		input()
+		print("It'll take at least an hour in order to search through every single one of the envelopes.")
+		input()
+		print("Search?")
+		answer = input()
+		checkInput()
+		if answer == "yes":
+			timeSpent += 6
+			print("You painstakingly searched through each and every one of the envelopes, not daring to miss a single one.")
+			input()
+			print("Unfortunately, no key is found.")
+			input()
+			print("Continue searching?")
+			answer = input()
+			checkInput()
+			if answer == "yes":
+				timeSpent += 6
+				print("You decided to search through them one more time.")
+				input()
+				print("However, you still couldn't find any keys.")
+				input()
+				print("Instead, you wasted yet another hour looking through the envelopes.")
+				input()
+				print("Panic starts to set in as you glanced at the blinking red dots on the rings.")
+				input()
+				print("Breathing in deeply, you attempted to calm yourself down.")
+				input()
+				print("You cannot afford to waste your time panicking.")
+				input()
+			elif answer == "no":
+				print("You decided to search elsewhere.")
+				input()
+		elif answer == "no":
+			print("You decided to take the chance that the envelopes don't contain keys.")
+			input()
+		while True:
+			print("Where would you like to go?")
+			answer = input()
+			
+						 
+						 
+				 
 						 
 						 
 				
