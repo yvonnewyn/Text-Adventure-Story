@@ -495,12 +495,58 @@ def room4():
 			print("You decided to take the chance that the envelopes don't contain keys.")
 			input()
 		while True:
-			print("Where would you like to go?")
-			answer = input()
-			
-						 
+            print("Where would you like to go?")
+            answer = input()
+         	checkInput()
+            if answer == "north" or answer == "south" or answer == "east":
+                exit
+            else:
+                print("You cannot go that way.")
+                continue
+       if answer == "north":
+			north()
+			return room = "room1"
+		elif answer == "south":"
+			south()
+			return room = "room7"
+		elif answer == "east":
+			east()
+			return room = "room5" 
 						 
 				 
+def room5():
+	timeSpent += 1
+	global room
+	global keys
+	checkTime()
+	if "room5" not in roomsEntered:
+		roomsEntered += ["room5"]
+		print("You walked into the room, it is completely empty.")
+		input()
+	elif "room5" in roomsEntered:
+		print("You walked into the empty room.")
+		input()
+	while True:
+        print("Where would you like to go?")
+        answer = input()
+        checkInput()
+        if answer == "north" or answer == "south" or answer == "east" or answer == "west":
+            exit
+        else:
+			print("You cannot go that way.")
+			continue
+    if answer == "north":
+		north()
+		return room = "room2"
+	elif answer == "south":"
+		south()
+		return room = "room8"
+	elif answer == "east":
+		east()
+		return room = "room6"
+	elif answer == "west":
+		west()
+		return room = "room4"
 						 
 						 
 				
